@@ -1,0 +1,10 @@
+.portfolio-technologies {
+  &__img-container {
+    flex-grow: 0 !important;
+    width: 36px;
+
+    figure {
+      width: 36px;
+    }
+  }
+}

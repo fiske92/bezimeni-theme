@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  padding-top: 75px;
+
+  &.dark-theme {
+    color: $light !important;
+    background-color: $dark !important;
+
+    .bezimeni-logo-light {
+      display: none;
+    }
+
+    .menu-toggle svg {
+      fill: $white !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .menu-link,
+    p,
+    footer a {
+      color: $light;
+    }
+
+    .bezimeni-counter-wrapper {
+      &:not(:last-child)::after {
+        background-color: $light;
+      }
+    }
+
+    #ast-mobile-header {
+      .ast-primary-header-bar {
+        background-color: transparent;
+      }
+    }
+  }
+
+  &.light-theme {
+    background-color: $light-1 !important;
+    color: $dark !important;
+
+    .bezimeni-logo-dark {
+      display: none !important;
+    }
+
+    .menu-toggle svg {
+      fill: $dark !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .menu-link,
+    p,
+    footer a {
+      color: $dark !important;
+    }
+
+    .bezimeni-counter-wrapper {
+      &:not(:last-child)::after {
+        background-color: $dark;
+      }
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+hr {
+  border-top: 0 !important;
+}
+
+.btn-arrow a {
+  display: flex;
+  align-items: center;
+}

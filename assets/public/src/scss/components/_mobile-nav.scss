@@ -1,0 +1,14 @@
+.ast-mobile-popup-inner {
+  background-color: $dark !important;
+  border-left: 1px solid $white;
+
+  .menu-link {
+    color: $white !important;
+  }
+
+  #menu-toggle-close {
+    svg {
+      color: $white;
+    }
+  }
+}

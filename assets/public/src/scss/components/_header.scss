@@ -1,0 +1,28 @@
+header.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: 0.3s all;
+
+  &.active {
+    backdrop-filter: blur(10px);
+  }
+}
+
+body.light-theme {
+  header.site-header {
+    &.active {
+      background-color: #ffffffc9;
+      box-shadow: 3px 3px 15px #e6e6e6;
+    }
+  }
+}
+
+body.dark-theme {
+  header.site-header {
+    &.active {
+      background-color: #000000d6;
+      box-shadow: 3px 3px 15px #25252580;
+    }
+  }
+}

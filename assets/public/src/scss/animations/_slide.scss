@@ -1,0 +1,18 @@
+.bezimeni-slide-left-item,
+.bezimeni-slide-right-item {
+  opacity: 0;
+  transition: transform 0.75s ease, opacity 1s ease;
+
+  &.animation-done {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+  }
+}
+
+.bezimeni-slide-left-item {
+  transform: translateX(50%) !important;
+}
+
+.bezimeni-slide-right-item {
+  transform: translateX(-50%) !important;
+}

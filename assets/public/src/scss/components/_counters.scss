@@ -1,0 +1,18 @@
+.bezimeni-counter-wrapper {
+  position: relative;
+
+  &:not(:last-child) {
+    @include media-breakpoint-up(md) {
+      &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        height: 75px;
+        width: 1px;
+        background-color: $light;
+        right: -13px;
+        top: 20px;
+      }
+    }
+  }
+}

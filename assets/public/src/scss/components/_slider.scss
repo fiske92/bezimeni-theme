@@ -1,0 +1,41 @@
+.bezimeni-slider-container {
+  display: flex !important;
+  overflow: auto;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.bezimeni-slider-item {
+  flex-shrink: 0;
+  width: 280px;
+
+  @include media-breakpoint-up(md) {
+    width: 380px;
+  }
+}
+
+.bezimeni-slide-prev,
+.bezimeni-slide-next {
+  background: transparent;
+  cursor: pointer;
+}
+
+.bezimeni-slide-prev[disabled],
+.bezimeni-slide-next[disabled] {
+  opacity: 0.25;
+}
+
+body.light-theme {
+  .bezimeni-slide-prev svg,
+  .bezimeni-slide-next svg {
+    fill: $dark !important;
+  }
+}
+
+body.dark-theme {
+  .bezimeni-slide-prev svg,
+  .bezimeni-slide-next svg {
+    fill: $light !important;
+  }
+}
