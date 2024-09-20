@@ -10,6 +10,7 @@
 
 define('CHILD_THEME_URL', get_stylesheet_directory_uri());
 define('CHILD_THEME_DIR', get_stylesheet_directory());
+define('CHILD_THEME_DOMAIN', 'bezimeni-theme');
  
 require_once('vendor/autoload.php');
 
