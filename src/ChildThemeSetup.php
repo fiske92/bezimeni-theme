@@ -3,6 +3,8 @@
 namespace Bezimeniit;
 
 use Bezimeniit\Controller\ThemeMode;
+use Bezimeniit\Controller\ThemeHooks;
+
 use Bezimeniit\Admin\ThemeUpdateChecker;
 
 class ChildThemeSetup
@@ -12,6 +14,7 @@ class ChildThemeSetup
         add_action('wp_enqueue_scripts', [$this, 'enqueueScriptAndStyle']);
         new ThemeMode();
         new ThemeUpdateChecker();
+        new ThemeHooks();
     }
 
     public function enqueueScriptAndStyle()
