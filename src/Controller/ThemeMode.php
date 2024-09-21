@@ -4,6 +4,8 @@ namespace Bezimeniit\Controller;
 
 class ThemeMode
 {
+	public const BEZIMENI_THEME_COOKIE = 'bezimeni-theme';
+
   public function __construct()
   {
       add_filter('get_custom_logo', [$this, 'setLogoBasedOnThemeMod']);
@@ -13,14 +15,14 @@ class ThemeMode
 
   public function setThemeModCookie()
   {
-      if (!isset($_COOKIE['bezimeni-theme'])) {
-          setcookie('bezimeni-theme', 'dark', 0, '/');
+      if (!isset($_COOKIE[self::BEZIMENI_THEME_COOKIE])) {
+          setcookie(self::BEZIMENI_THEME_COOKIE, 'dark', 0, '/');
       }
   }
 
   public function setLogoBasedOnThemeMod($html)
   {
-      $themeMode = $_COOKIE['bezimeni-theme'] ?? 'dark';
+      $themeMode = $_COOKIE[self::BEZIMENI_THEME_COOKIE] ?? 'dark';
 
       $logoURL = CHILD_THEME_URL . "/assets/public/dist/img/bezimeni-logo-$themeMode.png";
       $html = '<a href="' . home_url() . '" class="bezimeni-logo-wrapper" rel="home"><img src="' . $logoURL . '" class="bezimeni-logo" alt="' . get_bloginfo('name') . '"></a>';
@@ -30,7 +32,7 @@ class ThemeMode
 
   public function addThemeModeClassToBody($classes)
   {
-      $themeModeClass = $_COOKIE['bezimeni-theme'] ?? 'dark';
+      $themeModeClass = $_COOKIE[self::BEZIMENI_THEME_COOKIE] ?? 'dark';
       return array_merge($classes, [$themeModeClass . '-theme']);
   }
 }

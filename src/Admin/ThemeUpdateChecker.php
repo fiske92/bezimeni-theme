@@ -23,7 +23,8 @@ class ThemeUpdateChecker
     add_action('admin_notices', [$this, 'showUpdateCheckedNotice']);
   }
 
-  public function checkForThemeUpdate() {
+  public function checkForThemeUpdate() 
+  {
     if (isset($_GET['check-theme-update']) && $_GET['check-theme-update'] == '1') {
       $this->myUpdateChecker->setBranch('main');
 
@@ -32,7 +33,8 @@ class ThemeUpdateChecker
     }
   }
 
-  public function checkForUpdateBtn() {
+  public function checkForUpdateBtn() 
+  {
     $screen = get_current_screen();
 
     if ($screen->id !== 'themes') return;
@@ -50,7 +52,8 @@ class ThemeUpdateChecker
     <?php
   }
 
-  public function showUpdateCheckedNotice() {
+  public function showUpdateCheckedNotice() 
+  {
     if (isset($_GET['update-checked']) && $_GET['update-checked'] == '1') {
       ?>
 
