@@ -2,8 +2,6 @@
 
 namespace Bezimeniit\Admin;
 
-// require_once WP_PLUGIN_DIR . '/plugin-update-checker/plugin-update-checker.php';
-
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
 class ThemeUpdateChecker
@@ -14,7 +12,7 @@ class ThemeUpdateChecker
   { 
     if (is_admin()) {
       $this->myUpdateChecker = PucFactory::buildUpdateChecker(
-        'https://bezimeniit.com/theme/theme.json',
+        'https://github.com/fiske92/bezimeniIT',
         CHILD_THEME_DIR . '/functions.php',
         CHILD_THEME_DOMAIN
       );
@@ -27,7 +25,7 @@ class ThemeUpdateChecker
 
   public function checkForThemeUpdate() {
     if (isset($_GET['check-theme-update']) && $_GET['check-theme-update'] == '1') {
-      $this->myUpdateChecker->checkForUpdates();
+      $this->myUpdateChecker->setBranch('main');
 
       wp_redirect(admin_url('themes.php?update-checked=1'));
       exit;
