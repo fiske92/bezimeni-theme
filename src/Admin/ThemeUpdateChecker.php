@@ -27,6 +27,7 @@ class ThemeUpdateChecker
   {
     if (isset($_GET['check-theme-update']) && $_GET['check-theme-update'] == '1') {
       $this->myUpdateChecker->setBranch('main');
+      $this->myUpdateChecker->checkForUpdates();
 
       wp_redirect(admin_url('themes.php?update-checked=1'));
       exit;
