@@ -2,7 +2,7 @@ export default function createObserver(
   elements,
   callback,
   delay = false,
-  options = { threshold: 0.5 }
+  options = { threshold: 0.3 }
 ) {
   const observer = new IntersectionObserver((entries, observer) => {
     let timeout = 0;

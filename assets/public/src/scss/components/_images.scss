@@ -1,0 +1,13 @@
+.our-services-img img,
+.portfolio-img img {
+  object-fit: cover;
+  width: 100%;
+}
+
+.our-services-img img {
+  height: 314px;
+}
+
+.portfolio-img img {
+  height: 400px;
+}
