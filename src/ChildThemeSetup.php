@@ -7,6 +7,8 @@ use Bezimeniit\Controller\ThemeHooks;
 
 use Bezimeniit\Admin\ThemeUpdateChecker;
 
+use Bezimeniit\CPT\Project;
+
 class ChildThemeSetup
 {
     public function __construct()
@@ -15,6 +17,7 @@ class ChildThemeSetup
 
         $this->controllerInit();
         $this->adminInit();
+        $this->CPTInit();
     }
 
     public function enqueueScriptAndStyle()
@@ -25,7 +28,7 @@ class ChildThemeSetup
         $childThemeJSPath  = CHILD_THEME_DIR . '/assets/public/dist/js/child.min.js';
 
         wp_enqueue_style('main-css', $childThemeCSSURL, [], filemtime($childThemeCSSPath));
-        wp_enqueue_script('bootstrap-js', CHILD_THEME_URL . '/assets/public/dist/js/bootstrap.min.js', [], '1.0.0', true);
+        // wp_enqueue_script('bootstrap-js', CHILD_THEME_URL . '/assets/public/dist/js/bootstrap.min.js', [], '1.0.0', true);
         wp_enqueue_script('main-js', $childThemeJSURL, [], filemtime($childThemeJSPath), true);
     }
 
@@ -38,5 +41,10 @@ class ChildThemeSetup
     public function adminInit()
     {
         new ThemeHooks();
+    }
+
+    public function CPTInit()
+    {
+        new Project();
     }
 }
