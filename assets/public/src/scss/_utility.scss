@@ -1,0 +1,14 @@
+.btn-arrow a {
+  display: flex;
+  align-items: center;
+}
+
+.bezimeni-mobile-grid {
+  @include media-breakpoint-down(sm) {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+}
+
+.figure-img-full-width img {
+  width: 100%;
+}

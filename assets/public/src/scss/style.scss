@@ -3,6 +3,7 @@
 @import 'config';
 @import 'keyframes';
 @import 'common';
+@import 'utility';
 
 // Components
 @import './components/navigation';
@@ -16,6 +17,7 @@
 
 // Pages
 @import './pages/homepage';
+@import './pages/single-project';
 
 // Animations
 @import './animations/slide';
