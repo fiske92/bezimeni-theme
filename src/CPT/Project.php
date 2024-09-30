@@ -12,6 +12,8 @@ class Project
   public function __construct()
   {
     add_action('init', [$this, 'registerProjectPostType']);
+    add_action('admin_menu', [$this, 'addProjectSettingsPage']);
+    add_action('admin_init', [$this, 'registerProjectSettings']);
   }
 
   public function registerProjectPostType()
@@ -46,5 +48,78 @@ class Project
     ];
 
     register_post_type(self::POST_TYPE, $args);
+  }
+
+  public function addProjectSettingsPage()
+  {
+    add_submenu_page(
+      'edit.php?post_type=project',
+      'Project Settings',
+      'Project Settings',
+      'manage_options',
+      'project-settings',
+      [$this, 'projectSettingsPageHtml']
+    );
+  }
+
+  public function registerProjectSettings()
+  {
+    register_setting('project_settings_group', 'project_archive_title');
+    register_setting('project_settings_group', 'project_archive_description');
+
+    add_settings_section(
+      'project_settings_section',
+      'Archive Settings',
+      null,
+      'project-settings'
+    );
+
+    add_settings_field(
+      'project_archive_title_field',
+      'Archive title',
+      [$this, 'projectTitleFieldHtml'],
+      'project-settings',
+      'project_settings_section'
+    );
+
+    add_settings_field(
+      'project_archive_description_field',
+      'Archive description',
+      [$this, 'projectDescriptionFieldHtml'],
+      'project-settings',
+      'project_settings_section'
+    );
+  }
+
+  public function projectTitleFieldHtml()
+  {
+    $value = get_option('project_archive_title');
+    ?>
+    <input type="text" name="project_archive_title" value="<?php echo esc_attr($value); ?>" />
+    <?php
+  }
+
+  public function projectDescriptionFieldHtml()
+  {
+    $value = get_option('project_archive_description');
+    ?>
+    <textarea name="project_archive_description" id="project_archive_description"><?php echo esc_html($value); ?></textarea>
+    <?php
+  }
+
+  public function projectSettingsPageHtml()
+  {
+    ?>
+    <div class="wrap">
+      <h1>Project Settings</h1>
+      <form method="post" action="options.php">
+        <?php
+        settings_fields('project_settings_group');
+        do_settings_sections('project-settings');
+        submit_button();
+        ?>
+      </form>
+    </div>
+    <?php
   }
 }

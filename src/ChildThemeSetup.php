@@ -9,6 +9,8 @@ use Bezimeniit\Admin\ThemeUpdateChecker;
 
 use Bezimeniit\CPT\Project;
 
+use Bezimeniit\Helper\Helpers;
+
 class ChildThemeSetup
 {
     public function __construct()
@@ -18,6 +20,8 @@ class ChildThemeSetup
         $this->controllerInit();
         $this->adminInit();
         $this->CPTInit();
+        
+        new Helpers();
     }
 
     public function enqueueScriptAndStyle()
