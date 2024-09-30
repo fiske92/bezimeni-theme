@@ -14,7 +14,7 @@
             'title'          => get_the_title(),
             'excerpt'        => get_the_excerpt(),
             'permalink'      => get_permalink(),
-            'featured_image' => get_the_post_thumbnail()
+            'featured_image' => get_the_post_thumbnail(null, 'medium', ['class' => 'object-fit-cover w-100 rounded-3'])
           ]);
         }
       }
