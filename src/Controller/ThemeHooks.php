@@ -11,7 +11,9 @@ class ThemeHooks
 
   public function addStarsAnimationMarkup()
   {
-    if (!is_front_page()) {
+    $pagesWithStars = ['/', '/services/'];
+
+    if (isset($_REQUEST['REQUEST_URI']) && !in_array($pagesWithStars, $_REQUEST['REQUEST_URI'])) {
       return;
     }
 

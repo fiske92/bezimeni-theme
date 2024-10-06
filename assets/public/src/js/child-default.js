@@ -1,5 +1,6 @@
 import header from './header';
 import observerInit from './observerInit';
+import setStarsHeight from './setStarsHeight';
 import slider from './slider';
 import themeSwitcher from './themeSwitcher';
 
@@ -9,5 +10,6 @@ import themeSwitcher from './themeSwitcher';
     slider();
     themeSwitcher();
     header();
+    setStarsHeight();
   });
 })();
