@@ -13,7 +13,7 @@ class ThemeHooks
   {
     $pagesWithStars = ['/', '/services/'];
 
-    if (isset($_REQUEST['REQUEST_URI']) && !in_array($pagesWithStars, $_REQUEST['REQUEST_URI'])) {
+    if (isset($_SERVER['REQUEST_URI']) && !in_array($_SERVER['REQUEST_URI'], $pagesWithStars)) {
       return;
     }
 
